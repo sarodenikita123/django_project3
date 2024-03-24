@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Create page</title>
+{% endblock %}
+{% block content %}
+
+<body>
+        <form method="post" class="border border-5 col-6 m-auto p-5 mt-3 ">
+            <h1 class="text-center text-primary">Ticket Booking</h1>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-primary">
+            <input type="reset" value="cancel" class="btn btn-warning float-end">
+        </form>
+</body>
+{% endblock %}

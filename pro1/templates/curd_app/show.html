@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>show page</title>
+{% endblock %}
+{% block content %}
+<body>
+        <h3 class="text-center text-secondary">Booking information</h3>
+        <table class="table table-success table-striped ">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE</th>
+                    <th>BIRTHDAY</th>
+                    <th>ADDRESS1</th>
+                    <th>ADDRESS2</th>
+                    <th>CITY</th>
+                    <th>STATE</th>
+                    <th>ZIP</th>
+                    <th colspan="2" class="text-center">ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reg in obj %}
+                <tr>
+                    <td>{{reg.name}}</td>
+                    <td>{{reg.email}}</td>
+                    <td>{{reg.phone}}</td>
+                    <td>{{reg.birthday}}</td>
+                    <td>{{reg.address1}}</td>
+                    <td>{{reg.address2}}</td>
+                    <td>{{reg.city}}</td>
+                    <td>{{reg.state}}</td>
+                    <td>{{reg.zip}}</td>
+                    <td>
+                    <a href="{% url 'update_url' reg.id %} ">
+                        <button class="btn btn-warning col-12"><i class="bi bi-pencil-square"></i>&nbsp Update</button>
+                    </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'cancel_url' reg.id %}">
+                            <button class="btn btn-danger col-12"><i class="bi bi-trash3-fill"></i>&nbsp Delete</button>
+                        </a>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+</body>
+{% endblock%}
